@@ -1,7 +1,7 @@
 #Docker
 1. cd docker
 2. docker build -t test-postgresql .
-3. docker run -p 5432:5432 -d test-postgres:latest
+3. docker run --name test-postgres -p 5432:5432 -d test-postgres:latest
 
 log to docker container:
 docker exec -it <mycontainer> bash
