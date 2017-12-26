@@ -12,7 +12,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @SpringJUnitConfig(classes = MvcConfig.class)
 @WebAppConfiguration("classpath:com/bigos/conf")
-@ActiveProfiles("test")
+@ActiveProfiles("local")
 public class MvcIntegrationTests {
 
     @Autowired
