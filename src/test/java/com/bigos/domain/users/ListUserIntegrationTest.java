@@ -6,7 +6,6 @@ import com.bigos.presentation.dto.UserDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashMap;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +25,7 @@ public class ListUserIntegrationTest extends MvcIntegrationTests {
         User user = new User(USERNAME, PASSWORD, PRIVILIGES);
         userRepository.save(user);
 
-        MvcJsonResult<List<UserDto>> jsonResult = getForJson(LIST_USER_URI, new HashMap<>(), List.class, UserDto.class);
+        MvcJsonResult<List<UserDto>> jsonResult = get(LIST_USER_URI).forJsonOf(List.class, UserDto.class);
         List<UserDto> userDtos = jsonResult.getJson();
         UserDto userDto = userDtos.get(0);
 

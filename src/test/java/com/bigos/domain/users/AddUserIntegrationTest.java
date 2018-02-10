@@ -17,13 +17,13 @@ public class AddUserIntegrationTest extends MvcIntegrationTests {
     private static final Privileges PRIVILIGES = Privileges.USER;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Test
     void shouldAddUser() {
         UserDto userDto = new UserDto(USERNAME, PASSWORD, PRIVILIGES);
 
-        MvcJsonResult jsonResult = postForJson(ADD_USER_URI, userDto, null);
+        MvcJsonResult jsonResult = post(ADD_USER_URI).withContent(userDto).forResult();
 
         assertThat(jsonResult.getStatus()).isEqualTo(HttpStatus.OK);
         assertThat(userRepository.existsById(USERNAME));

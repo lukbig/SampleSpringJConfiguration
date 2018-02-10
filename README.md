@@ -34,3 +34,8 @@ sources.addFirst(new MyPropertySource());
 
 Configuration can be changed with profiles. Profiles can be changed with @ActiveProfiles or env.setActiveProfiles(...)
 or with run parameters: -Dspring.profiles.active="profile1,profile2"
+
+## Set spring profile on tomcat
+Just create file setenv.sh in Tomcat's bin directory with content:
+
+JAVA_OPTS="$JAVA_OPTS -Dspring.profiles.active=dev"
